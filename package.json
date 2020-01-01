@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "extensible abstract syntax tree",
   "license": "cc-by-4.0",
   "keywords": [],

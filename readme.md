@@ -10,7 +10,7 @@ It implements the **[unist][]** spec.
 
 This document may not be released.
 See [releases][] for released documents.
-The latest released version is [`0.0.0`][latest].
+The latest released version is [`1.0.0`][latest].
 
 ## Table of Contents
 
@@ -454,7 +454,7 @@ The initial release of this project was authored by **[@wooorm][author]**.
 
 [releases]: https://github.com/syntax-tree/xast/releases
 
-[latest]: https://github.com/syntax-tree/xast/releases/tag/0.0.0
+[latest]: https://github.com/syntax-tree/xast/releases/tag/1.0.0
 
 [dfn-unist-node]: https://github.com/syntax-tree/unist#node
 
