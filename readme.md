@@ -1,6 +1,4 @@
-<!--lint disable no-html-->
-
-# xast
+# ![xast][logo]
 
 E**x**tensible **A**bstract **S**yntax **T**ree format.
 
@@ -451,6 +449,8 @@ The initial release of this project was authored by **[@wooorm][author]**.
 [license]: https://creativecommons.org/licenses/by/4.0/
 
 [author]: https://wooorm.com
+
+[logo]: https://raw.githubusercontent.com/syntax-tree/xast/e3219d4/logo.svg?sanitize=true
 
 [releases]: https://github.com/syntax-tree/xast/releases
 
