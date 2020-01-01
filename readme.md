@@ -450,7 +450,7 @@ The initial release of this project was authored by **[@wooorm][author]**.
 
 [author]: https://wooorm.com
 
-[logo]: https://raw.githubusercontent.com/syntax-tree/xast/e3219d4/logo.svg?sanitize=true
+[logo]: https://raw.githubusercontent.com/syntax-tree/xast/9f06bc6/logo.svg?sanitize=true
 
 [releases]: https://github.com/syntax-tree/xast/releases
 
