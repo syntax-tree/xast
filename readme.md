@@ -12,7 +12,7 @@ This document may not be released.
 See [releases][] for released documents.
 The latest released version is [`1.0.0`][latest].
 
-## Table of Contents
+## Contents
 
 *   [Introduction](#introduction)
     *   [Where this specification fits](#where-this-specification-fits)
@@ -28,7 +28,7 @@ The latest released version is [`1.0.0`][latest].
     *   [`Instruction`](#instruction)
     *   [`Cdata`](#cdata)
 *   [Glossary](#glossary)
-*   [List of Utilities](#list-of-utilities)
+*   [List of utilities](#list-of-utilities)
 *   [References](#references)
 *   [Contribute](#contribute)
 *   [Acknowledgments](#acknowledgments)
@@ -376,7 +376,7 @@ Yields:
 
 See the [unist glossary][glossary].
 
-## List of Utilities
+## List of utilities
 
 See the [unist list of utilities][utilities] for more utilities.
 
@@ -420,8 +420,8 @@ Ideas for new utilities and tools can be posted in [`syntax-tree/ideas`][ideas].
 A curated list of awesome syntax-tree, unist, hast, mdast, nlcst, and xast
 resources can be found in [awesome syntax-tree][awesome].
 
-This project has a [Code of Conduct][coc].
-By interacting with this repository, organisation, or community you agree to
+This project has a [code of conduct][coc].
+By interacting with this repository, organization, or community you agree to
 abide by its terms.
 
 ## Acknowledgments
