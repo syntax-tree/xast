@@ -382,8 +382,12 @@ See the [unist list of utilities][utilities] for more utilities.
 
 *   [`xastscript`](https://github.com/syntax-tree/xastscript)
     — Create xast trees
+*   [`xast-util-from-xml`](https://github.com/syntax-tree/xast-util-from-xml)
+    — Parse from XML to xast
 *   [`xast-util-to-xml`](https://github.com/syntax-tree/xast-util-to-xml)
-    — Serialize nodes to XML
+    — Serialize xast to XML
+*   [`hast-util-to-xast`](https://github.com/syntax-tree/hast-util-to-xast)
+    — Transform hast to xast
 
 ## References
 
