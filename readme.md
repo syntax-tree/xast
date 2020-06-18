@@ -2,7 +2,7 @@
 
 E**x**tensible **A**bstract **S**yntax **T**ree format.
 
-* * *
+***
 
 **xast** is a specification for representing [XML][] as an abstract
 [syntax tree][syntax-tree].
