@@ -383,8 +383,12 @@ See the [unist list of utilities][utilities] for more utilities.
 
 *   [`xastscript`](https://github.com/syntax-tree/xastscript)
     — create xast trees
+*   [`xast-util-feed`](https://github.com/syntax-tree/xast-util-feed)
+    — build feeds (RSS, Atom)
 *   [`xast-util-from-xml`](https://github.com/syntax-tree/xast-util-from-xml)
     — parse from XML to xast
+*   [`xast-util-sitemap`](https://github.com/syntax-tree/xast-util-sitemap)
+    — build `sitemap.xml`
 *   [`xast-util-to-string`](https://github.com/syntax-tree/xast-util-to-string)
     — get the text value of xast trees
 *   [`xast-util-to-xml`](https://github.com/syntax-tree/xast-util-to-xml)
