@@ -108,7 +108,7 @@ Internal document type declarations have no representation in xast:
 
 ```idl
 interface Parent <: UnistParent {
-  children: [Element | Text | Comment | Doctype | Instruction | Cdata]
+  children: [Cdata | Comment | Doctype | Element | Instruction | Text]
 }
 ```
 
@@ -132,7 +132,7 @@ containing a value.
 
 ```idl
 interface Root <: Parent {
-  type: "root"
+  type: 'root'
 }
 ```
 
@@ -150,10 +150,10 @@ a whole document.
 
 ```idl
 interface Element <: Parent {
-  type: "element"
+  type: 'element'
   name: string
   attributes: Attributes?
-  children: [Element | Text | Comment | Instruction | Cdata]
+  children: [Cdata | Comment | Element | Instruction | Text]
 }
 ```
 
@@ -229,7 +229,7 @@ reflect XML attribute values exactly as a string.
 
 ```idl
 interface Text <: Literal {
-  type: "text"
+  type: 'text'
 }
 ```
 
@@ -257,7 +257,7 @@ Yields:
 
 ```idl
 interface Comment <: Literal {
-  type: "comment"
+  type: 'comment'
 }
 ```
 
@@ -280,7 +280,7 @@ Yields:
 
 ```idl
 interface Doctype <: Node {
-  type: "doctype"
+  type: 'doctype'
   name: string
   public: string?
   system: string?
@@ -321,7 +321,7 @@ Yields:
 
 ```idl
 interface Instruction <: Literal {
-  type: "instruction"
+  type: 'instruction'
   name: string
 }
 ```
@@ -351,7 +351,7 @@ Yields:
 
 ```idl
 interface Cdata <: Literal {
-  type: "cdata"
+  type: 'cdata'
 }
 ```
 
