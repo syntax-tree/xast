@@ -17,6 +17,7 @@ The latest released version is [`1.0.0`][latest].
 *   [Introduction](#introduction)
     *   [Where this specification fits](#where-this-specification-fits)
     *   [Scope](#scope)
+*   [Types](#types)
 *   [Nodes](#nodes)
     *   [`Parent`](#parent)
     *   [`Literal`](#literal)
@@ -100,6 +101,15 @@ Internal document type declarations have no representation in xast:
   <!ELEMENT greeting (#PCDATA)>
 ]>
 <greeting>Hello, world!</greeting>
+```
+
+## Types
+
+If you are using TypeScript, you can use the unist types by installing them
+with npm:
+
+```sh
+npm install @types/xast
 ```
 
 ## Nodes
