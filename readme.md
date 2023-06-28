@@ -18,16 +18,21 @@ The latest released version is [`1.0.0`][latest].
     *   [Where this specification fits](#where-this-specification-fits)
     *   [Scope](#scope)
 *   [Types](#types)
-*   [Nodes](#nodes)
-    *   [`Parent`](#parent)
+*   [Nodes (abstract)](#nodes-abstract)
     *   [`Literal`](#literal)
-    *   [`Root`](#root)
-    *   [`Element`](#element)
-    *   [`Text`](#text)
+    *   [`Parent`](#parent)
+*   [Nodes](#nodes)
+    *   [`Cdata`](#cdata)
     *   [`Comment`](#comment)
     *   [`Doctype`](#doctype)
+    *   [`Element`](#element)
     *   [`Instruction`](#instruction)
-    *   [`Cdata`](#cdata)
+    *   [`Root`](#root)
+    *   [`Text`](#text)
+*   [Other types](#other-types)
+    *   [`Attributes`](#attributes)
+    *   [`AttributeName`](#attributename)
+    *   [`AttributeValue`](#attributevalue)
 *   [Glossary](#glossary)
 *   [List of utilities](#list-of-utilities)
 *   [References](#references)
@@ -105,14 +110,25 @@ Internal document type declarations have no representation in xast:
 
 ## Types
 
-If you are using TypeScript, you can use the unist types by installing them
+If you are using TypeScript, you can use the xast types by installing them
 with npm:
 
 ```sh
 npm install @types/xast
 ```
 
-## Nodes
+## Nodes (abstract)
+
+### `Literal`
+
+```idl
+interface Literal <: UnistLiteral {
+  value: string
+}
+```
+
+**Literal** (**[UnistLiteral][dfn-unist-literal]**) represents a node in xast
+containing a value.
 
 ### `Parent`
 
@@ -127,139 +143,31 @@ containing other nodes (said to be *[children][term-child]*).
 
 Its content is limited to only other xast content.
 
-### `Literal`
+## Nodes
+
+### `Cdata`
 
 ```idl
-interface Literal <: UnistLiteral {
-  value: string
+interface Cdata <: Literal {
+  type: 'cdata'
 }
 ```
 
-**Literal** (**[UnistLiteral][dfn-unist-literal]**) represents a node in xast
-containing a value.
-
-### `Root`
-
-```idl
-interface Root <: Parent {
-  type: 'root'
-}
-```
-
-**Root** (**[Parent][dfn-parent]**) represents a document fragment or a whole
-document.
-
-**Root** should be used as the *[root][term-root]* of a *[tree][term-tree]* and
-must not be used as a *[child][term-child]*.
-
-XML specifies that documents should have exactly one **[element][dfn-element]**
-child, therefore a root should have exactly one element child when representing
-a whole document.
-
-### `Element`
-
-```idl
-interface Element <: Parent {
-  type: 'element'
-  name: string
-  attributes: Attributes?
-  children: [Cdata | Comment | Element | Instruction | Text]
-}
-```
-
-**Element** (**[Parent][dfn-parent]**) represents an
-*[element][concept-element]* ([\[XML\]][xml]).
-
-The `name` field must be present.
-It represents the element’s *[name][concept-name]* ([\[XML\]][xml]),
-specifically its *[qualified name][concept-qualified-name]*
-([\[XML-NAMES\]][xml-names]).
-
-The `children` field should be present.
-
-The `attributes` field should be present.
-It represents information associated with the element.
-The value of the `attributes` field implements the
-**[Attributes][dfn-attributes]** interface.
+**Cdata** (**[Literal][dfn-literal]**) represents a
+*[CDATA section][concept-cdata]* ([\[XML\]][xml]).
 
 For example, the following XML:
 
 ```xml
-<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="id" />
+<![CDATA[<greeting>Hello, world!</greeting>]]>
 ```
 
 Yields:
 
 ```js
 {
-  type: 'element',
-  name: 'package',
-  attributes: {
-    xmlns: 'http://www.idpf.org/2007/opf',
-    'unique-identifier': 'id'
-  },
-  children: []
-}
-```
-
-#### `Attributes`
-
-```idl
-interface Attributes {}
-```
-
-**Attributes** represents information associated with an element.
-
-Every field must be a **[AttributeName][dfn-attribute-name]** and every value an
-**[AttributeValue][dfn-attribute-value]**.
-
-#### `AttributeName`
-
-```idl
-typedef string AttributeName
-```
-
-Attribute names are keys on **[Attributes][dfn-attributes]** objects and must
-reflect XML attribute names exactly.
-
-#### `AttributeValue`
-
-```idl
-typedef string AttributeValue
-```
-
-Attribute values are values on **[Attributes][dfn-attributes]** objects and must
-reflect XML attribute values exactly as a string.
-
-> In [JSON][], the value `null` must be treated as if the attribute was not
-> included.
-> In [JavaScript][], both `null` and `undefined` must be similarly ignored.
-
-### `Text`
-
-```idl
-interface Text <: Literal {
-  type: 'text'
-}
-```
-
-**Text** (**[Literal][dfn-literal]**) represents
-*[character data][concept-char]* ([\[XML\]][xml]).
-
-For example, the following XML:
-
-```xml
-<dc:language>en</dc:language>
-```
-
-Yields:
-
-```js
-{
-  type: 'element',
-  name: 'dc:language',
-  attributes: {},
-  children: [{type: 'text', value: 'en'}]
+  type: 'cdata',
+  value: '<greeting>Hello, world!</greeting>'
 }
 ```
 
@@ -327,6 +235,52 @@ Yields:
 }
 ```
 
+### `Element`
+
+```idl
+interface Element <: Parent {
+  type: 'element'
+  name: string
+  attributes: Attributes?
+  children: [Cdata | Comment | Element | Instruction | Text]
+}
+```
+
+**Element** (**[Parent][dfn-parent]**) represents an
+*[element][concept-element]* ([\[XML\]][xml]).
+
+The `name` field must be present.
+It represents the element’s *[name][concept-name]* ([\[XML\]][xml]),
+specifically its *[qualified name][concept-qualified-name]*
+([\[XML-NAMES\]][xml-names]).
+
+The `children` field should be present.
+
+The `attributes` field should be present.
+It represents information associated with the element.
+The value of the `attributes` field implements the
+**[Attributes][dfn-attributes]** interface.
+
+For example, the following XML:
+
+```xml
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="id" />
+```
+
+Yields:
+
+```js
+{
+  type: 'element',
+  name: 'package',
+  attributes: {
+    xmlns: 'http://www.idpf.org/2007/opf',
+    'unique-identifier': 'id'
+  },
+  children: []
+}
+```
+
 ### `Instruction`
 
 ```idl
@@ -357,31 +311,86 @@ Yields:
 }
 ```
 
-### `Cdata`
+### `Root`
 
 ```idl
-interface Cdata <: Literal {
-  type: 'cdata'
+interface Root <: Parent {
+  type: 'root'
 }
 ```
 
-**Cdata** (**[Literal][dfn-literal]**) represents a
-*[CDATA section][concept-cdata]* ([\[XML\]][xml]).
+**Root** (**[Parent][dfn-parent]**) represents a document fragment or a whole
+document.
+
+**Root** should be used as the *[root][term-root]* of a *[tree][term-tree]* and
+must not be used as a *[child][term-child]*.
+
+XML specifies that documents should have exactly one **[element][dfn-element]**
+child, therefore a root should have exactly one element child when representing
+a whole document.
+
+### `Text`
+
+```idl
+interface Text <: Literal {
+  type: 'text'
+}
+```
+
+**Text** (**[Literal][dfn-literal]**) represents
+*[character data][concept-char]* ([\[XML\]][xml]).
 
 For example, the following XML:
 
 ```xml
-<![CDATA[<greeting>Hello, world!</greeting>]]>
+<dc:language>en</dc:language>
 ```
 
 Yields:
 
 ```js
 {
-  type: 'cdata',
-  value: '<greeting>Hello, world!</greeting>'
+  type: 'element',
+  name: 'dc:language',
+  attributes: {},
+  children: [{type: 'text', value: 'en'}]
 }
 ```
+
+## Other types
+
+### `Attributes`
+
+```idl
+interface Attributes {}
+```
+
+**Attributes** represents information associated with an element.
+
+Every field must be a **[AttributeName][dfn-attribute-name]** and every value an
+**[AttributeValue][dfn-attribute-value]**.
+
+### `AttributeName`
+
+```idl
+typedef string AttributeName
+```
+
+Attribute names are keys on **[Attributes][dfn-attributes]** objects and must
+reflect XML attribute names exactly.
+
+### `AttributeValue`
+
+```idl
+typedef string AttributeValue
+```
+
+Attribute values are values on **[Attributes][dfn-attributes]** objects and must
+reflect XML attribute values exactly as a string.
+
+> In [JSON][], the value `null` must be treated as if the attribute was not
+> included.
+> In [JavaScript][], both `null` and `undefined` must be similarly ignored.
 
 ## Glossary
 
