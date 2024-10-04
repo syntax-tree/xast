@@ -14,32 +14,32 @@ The latest released version is [`1.0.0`][latest].
 
 ## Contents
 
-*   [Introduction](#introduction)
-    *   [Where this specification fits](#where-this-specification-fits)
-    *   [Scope](#scope)
-*   [Types](#types)
-*   [Nodes (abstract)](#nodes-abstract)
-    *   [`Literal`](#literal)
-    *   [`Parent`](#parent)
-*   [Nodes](#nodes)
-    *   [`Cdata`](#cdata)
-    *   [`Comment`](#comment)
-    *   [`Doctype`](#doctype)
-    *   [`Element`](#element)
-    *   [`Instruction`](#instruction)
-    *   [`Root`](#root)
-    *   [`Text`](#text)
-*   [Other types](#other-types)
-    *   [`Attributes`](#attributes)
-    *   [`AttributeName`](#attributename)
-    *   [`AttributeValue`](#attributevalue)
-*   [Glossary](#glossary)
-*   [List of utilities](#list-of-utilities)
-*   [References](#references)
-*   [Related](#related)
-*   [Contribute](#contribute)
-*   [Acknowledgments](#acknowledgments)
-*   [License](#license)
+* [Introduction](#introduction)
+  * [Where this specification fits](#where-this-specification-fits)
+  * [Scope](#scope)
+* [Types](#types)
+* [Nodes (abstract)](#nodes-abstract)
+  * [`Literal`](#literal)
+  * [`Parent`](#parent)
+* [Nodes](#nodes)
+  * [`Cdata`](#cdata)
+  * [`Comment`](#comment)
+  * [`Doctype`](#doctype)
+  * [`Element`](#element)
+  * [`Instruction`](#instruction)
+  * [`Root`](#root)
+  * [`Text`](#text)
+* [Other types](#other-types)
+  * [`Attributes`](#attributes)
+  * [`AttributeName`](#attributename)
+  * [`AttributeValue`](#attributevalue)
+* [Glossary](#glossary)
+* [List of utilities](#list-of-utilities)
+* [References](#references)
+* [Related](#related)
+* [Contribute](#contribute)
+* [Acknowledgments](#acknowledgments)
+* [License](#license)
 
 ## Introduction
 
@@ -400,54 +400,54 @@ See the [unist glossary][glossary].
 
 See the [unist list of utilities][utilities] for more utilities.
 
-*   [`xastscript`](https://github.com/syntax-tree/xastscript)
-    — create trees
-*   [`xast-util-feed`](https://github.com/syntax-tree/xast-util-feed)
-    — build feeds (RSS, Atom)
-*   [`xast-util-from-xml`](https://github.com/syntax-tree/xast-util-from-xml)
-    — parse from XML
-*   [`xast-util-sitemap`](https://github.com/syntax-tree/xast-util-sitemap)
-    — build `sitemap.xml`
-*   [`xast-util-to-string`](https://github.com/syntax-tree/xast-util-to-string)
-    — get the text value
-*   [`xast-util-to-xml`](https://github.com/syntax-tree/xast-util-to-xml)
-    — serialize to XML
-*   [`hast-util-to-xast`](https://github.com/syntax-tree/hast-util-to-xast)
-    — transform to xast
+* [`xastscript`](https://github.com/syntax-tree/xastscript)
+  — create trees
+* [`xast-util-feed`](https://github.com/syntax-tree/xast-util-feed)
+  — build feeds (RSS, Atom)
+* [`xast-util-from-xml`](https://github.com/syntax-tree/xast-util-from-xml)
+  — parse from XML
+* [`xast-util-sitemap`](https://github.com/syntax-tree/xast-util-sitemap)
+  — build `sitemap.xml`
+* [`xast-util-to-string`](https://github.com/syntax-tree/xast-util-to-string)
+  — get the text value
+* [`xast-util-to-xml`](https://github.com/syntax-tree/xast-util-to-xml)
+  — serialize to XML
+* [`hast-util-to-xast`](https://github.com/syntax-tree/hast-util-to-xast)
+  — transform to xast
 
 ## References
 
-*   **JSON**
-    [The JavaScript Object Notation (JSON) Data Interchange Format][json],
-    T. Bray.
-    IETF.
-*   **JavaScript**:
-    [ECMAScript Language Specification][javascript].
-    Ecma International.
-*   **unist**:
-    [Universal Syntax Tree][unist].
-    T. Wormer; et al.
-*   **XML**:
-    [Extensible Markup Language (XML) 1.0 (Fifth Edition)][xml]
-    T. Bray; et al.
-    W3C.
-*   **XML-NAMES**:
-    [Namespaces in XML 1.0 (Third Edition)][xml-names]
-    T. Bray; et al.
-    W3C.
-*   **Web IDL**:
-    [Web IDL][webidl],
-    C. McCormack.
-    W3C.
+* **JSON**
+  [The JavaScript Object Notation (JSON) Data Interchange Format][json],
+  T. Bray.
+  IETF.
+* **JavaScript**:
+  [ECMAScript Language Specification][javascript].
+  Ecma International.
+* **unist**:
+  [Universal Syntax Tree][unist].
+  T. Wormer; et al.
+* **XML**:
+  [Extensible Markup Language (XML) 1.0 (Fifth Edition)][xml]
+  T. Bray; et al.
+  W3C.
+* **XML-NAMES**:
+  [Namespaces in XML 1.0 (Third Edition)][xml-names]
+  T. Bray; et al.
+  W3C.
+* **Web IDL**:
+  [Web IDL][webidl],
+  C. McCormack.
+  W3C.
 
 ## Related
 
-*   [hast](https://github.com/syntax-tree/hast)
-    — Hypertext Abstract Syntax Tree format
-*   [mdast](https://github.com/syntax-tree/mdast)
-    — Markdown Abstract Syntax Tree format
-*   [nlcst](https://github.com/syntax-tree/nlcst)
-    — Natural Language Concrete Syntax Tree format
+* [hast](https://github.com/syntax-tree/hast)
+  — Hypertext Abstract Syntax Tree format
+* [mdast](https://github.com/syntax-tree/mdast)
+  — Markdown Abstract Syntax Tree format
+* [nlcst](https://github.com/syntax-tree/nlcst)
+  — Natural Language Concrete Syntax Tree format
 
 ## Contribute
 
