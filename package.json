@@ -1,26 +1,26 @@
 {
-  "private": true,
-  "version": "1.0.0",
-  "description": "extensible abstract syntax tree",
-  "license": "cc-by-4.0",
-  "keywords": [],
-  "repository": "syntax-tree/xast",
-  "bugs": "https://github.com/syntax-tree/xast/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (wooorm.com)",
+  "bugs": "https://github.com/syntax-tree/xast/issues",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (wooorm.com)"
   ],
+  "description": "extensible abstract syntax tree",
   "devDependencies": {
     "remark-cli": "^12.0.0",
     "remark-preset-wooorm": "^10.0.0"
   },
+  "keywords": [],
+  "license": "cc-by-4.0",
+  "private": true,
   "scripts": {
-    "format": "remark . -qfo",
+    "format": "remark --frail --output --quiet -- .",
     "test": "npm run format"
   },
   "remarkConfig": {
     "plugins": [
       "remark-preset-wooorm"
     ]
-  }
+  },
+  "repository": "syntax-tree/xast",
+  "version": "1.0.0"
 }
