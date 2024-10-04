@@ -50,13 +50,15 @@ Development started in January 2020.
 
 ### Where this specification fits
 
-xast extends [unist][], a format for syntax trees, to benefit from its
-[ecosystem of utilities][utilities].
+xast extends [unist][],
+a format for syntax trees,
+to benefit from its [ecosystem of utilities][utilities].
 
 xast relates to [JavaScript][] in that it has an [ecosystem of
 utilities][list-of-utilities] for working with compliant syntax trees in
 JavaScript.
-However, xast is not limited to JavaScript and can be used in other programming
+However,
+xast is not limited to JavaScript and can be used in other programming
 languages.
 
 xast relates to the [unified][] project in that xast syntax trees are used
@@ -64,16 +66,20 @@ throughout its ecosystem.
 
 ### Scope
 
-xast represents XML syntax, not semantics: there are no namespaces or local
-names; only qualified names.
+xast represents XML syntax,
+not semantics:
+there are no namespaces or local names;
+only qualified names.
 
 xast supports a sensible subset of XML by omitting the ostensibly bad DTD.
-XML processors are not guaranteed to process DTDs, making them unsafe.
+XML processors are not guaranteed to process DTDs,
+making them unsafe.
 
 xast represents expanded entities and therefore does not deal with entities or
 character references.
-It is suggested that utilities around xast, that parse or serialize, do *not*
-support *[parameter-entity references][concept-parameter-entity]* or
+It is suggested that utilities around xast,
+that parse or serialize,
+do *not* support *[parameter-entity references][concept-parameter-entity]* or
 *[entity references][concept-entity]* other than the
 *[predefined entities][concept-predefined-entities]*
 (`&lt;` for `<` U+003C LESS THAN;
@@ -110,8 +116,8 @@ Internal document type declarations have no representation in xast:
 
 ## Types
 
-If you are using TypeScript, you can use the xast types by installing them
-with npm:
+If you are using TypeScript,
+you can use the xast types by installing them with npm:
 
 ```sh
 npm install @types/xast
@@ -156,7 +162,8 @@ interface Cdata <: Literal {
 **Cdata** (**[Literal][dfn-literal]**) represents a
 *[CDATA section][concept-cdata]* ([\[XML\]][xml]).
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
 <![CDATA[<greeting>Hello, world!</greeting>]]>
@@ -182,7 +189,8 @@ interface Comment <: Literal {
 **Comment** (**[Literal][dfn-literal]**) represents a
 *[comment][concept-comment]* ([\[XML\]][xml]).
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
 <!--Charlie-->
@@ -211,14 +219,17 @@ interface Doctype <: Node {
 A `name` field must be present.
 
 A `public` field should be present.
-If present, it must be set to a string, and represents the document’s public
-identifier.
+If present,
+it must be set to a string,
+and represents the document’s public identifier.
 
 A `system` field should be present.
-If present, it must be set to a string, and represents the document’s system
-identifier.
+If present,
+it must be set to a string,
+and represents the document’s system identifier.
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -261,10 +272,11 @@ It represents information associated with the element.
 The value of the `attributes` field implements the
 **[Attributes][dfn-attributes]** interface.
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
-<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="id" />
+<package unique-identifier="id" xmlns="http://www.idpf.org/2007/opf" />
 ```
 
 Yields:
@@ -274,8 +286,8 @@ Yields:
   type: 'element',
   name: 'package',
   attributes: {
-    xmlns: 'http://www.idpf.org/2007/opf',
-    'unique-identifier': 'id'
+    'unique-identifier': 'id',
+    xmlns: 'http://www.idpf.org/2007/opf'
   },
   children: []
 }
@@ -295,7 +307,8 @@ interface Instruction <: Literal {
 
 A `name` field must be present.
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -326,8 +339,9 @@ document.
 must not be used as a *[child][term-child]*.
 
 XML specifies that documents should have exactly one **[element][dfn-element]**
-child, therefore a root should have exactly one element child when representing
-a whole document.
+child,
+therefore a root should have exactly one element child when representing a
+whole document.
 
 ### `Text`
 
@@ -340,7 +354,8 @@ interface Text <: Literal {
 **Text** (**[Literal][dfn-literal]**) represents
 *[character data][concept-char]* ([\[XML\]][xml]).
 
-For example, the following XML:
+For example,
+the following XML:
 
 ```xml
 <dc:language>en</dc:language>
@@ -388,9 +403,10 @@ typedef string AttributeValue
 Attribute values are values on **[Attributes][dfn-attributes]** objects and must
 reflect XML attribute values exactly as a string.
 
-> In [JSON][], the value `null` must be treated as if the attribute was not
-> included.
-> In [JavaScript][], both `null` and `undefined` must be similarly ignored.
+> In [JSON][],
+> the value `null` must be treated as if the attribute was not included.
+> In [JavaScript][],
+> both `null` and `undefined` must be similarly ignored.
 
 ## Glossary
 
@@ -456,12 +472,17 @@ ways to get started.
 See [`support.md`][support] for ways to get help.
 Ideas for new utilities and tools can be posted in [`syntax-tree/ideas`][ideas].
 
-A curated list of awesome syntax-tree, unist, hast, mdast, nlcst, and xast
-resources can be found in [awesome syntax-tree][awesome].
+A curated list of awesome `syntax-tree`,
+unist,
+hast,
+mdast,
+nlcst,
+and xast resources can be found in [awesome syntax-tree][awesome].
 
 This project has a [code of conduct][coc].
-By interacting with this repository, organization, or community you agree to
-abide by its terms.
+By interacting with this repository,
+organization,
+or community you agree to abide by its terms.
 
 ## Acknowledgments
 
